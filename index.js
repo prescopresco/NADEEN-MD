@@ -192,7 +192,7 @@ m.react("💃🏻")
 }
 if(senderNumber.includes("94716769285")){
 if(isReact) return
-m.react("👨🏻‍💻")
+m.react("🎉")
 }
 if(senderNumber.includes("94756857260")){
 if(isReact) return
