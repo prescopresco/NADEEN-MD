@@ -64,7 +64,7 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 connectToWA()
 }
 } else if (connection === 'open') {
-console.log('NADEEN-MD CONNECTED TO WHATSAPP✅')
+console.log('🧩 Installing... ')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
@@ -86,7 +86,6 @@ let up = `🚀 *_NADEEN-MD Connected Successfully!_* ✅
 
 > *💠Join WhatsApp Channel - :* https://whatsapp.com/channel/0029VagN2qW3gvWUBhsjcn3I
 > *💠Repo - :* https://github.com/Nadeenpoorna-max/NADEEN-MD
-> *💠YouTube - :* https://www.youtube.com/@NADEEN-MD
 
 > *POWERED BY DARK CYBER MATRIX™*
 
@@ -182,21 +181,13 @@ if(senderNumber.includes("94779483535")){
 if(isReact) return
 m.react("💀")
 }
-if(senderNumber.includes("94775383340")){
-if(isReact) return
-m.react("🦹🏻‍♂️")
-}
-if(senderNumber.includes("947435489886")){
-if(isReact) return
-m.react("💃🏻")
-}
 if(senderNumber.includes("94716769285")){
 if(isReact) return
 m.react("🎉")
 }
-if(senderNumber.includes("94756857260")){
+if(senderNumber.includes("947435489886")){
 if(isReact) return
-m.react("🐱‍👤")
+m.react("💃🏻")
 }
 
 //=====Auto-Read-Cmd==========
