@@ -44,7 +44,7 @@ connectDB();
 const {readEnv} = require('./lib/database')
 const config = await readEnv()
 const prefix = config.PREFIX
-console.log("Connecting wa bot 📀...");
+console.log("Connecting wa bot 🧬...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/session/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -64,7 +64,7 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 connectToWA()
 }
 } else if (connection === 'open') {
-console.log('🧩 Installing... ')
+console.log('👩🏻‍💻 Installing... ')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
@@ -74,24 +74,9 @@ require("./plugins/" + plugin);
 console.log('Plugins installed successful ✅')
 console.log('Bot connected to whatsapp ✅')
 
-let up = `🚀 *_NADEEN-MD Connected Successfully!_* ✅ 
+let up = `NADEEN-MD CONNETED SUCCESSFULLY 🤭✅\n\nPREFIX:${prefix}\n👨‍💻 ɴᴀᴅᴇᴇɴ-ᴍᴅ ᴍᴀᴅᴇ ʙʏ ɴᴀᴅᴇᴇɴ ᴘᴏᴏʀɴᴀ 👨‍💻\n*🔹 OWNER:* ${ownerNumber}\n_Thank you for using_ *👨‍💻NADEEN-MD💗.*\n_We're here to make your experience enjoyable and seamless._\n_If you need any help or have questions, don't hesitate to ask._ 🌝💗`;
 
---- *💀🧨 _Welcome to NADEEN-MD!_* 🧨💀 
-
-*💥 PREFIX:* ${prefix}
-*💥 OWNER:* ${ownerNumber}
-*💥 MADE BY:* Nadeen Poorna
-
-> Thank you for using *NADEEN-MD💗.*
-
-> *💠Join WhatsApp Channel - :* https://whatsapp.com/channel/0029VagN2qW3gvWUBhsjcn3I
-> *💠Repo - :* https://github.com/Nadeenpoorna-max/NADEEN-MD
-
-> *POWERED BY DARK CYBER MATRIX™*
-
-*👨‍💻ɴᴀᴅᴇᴇɴ-ᴍᴅ ᴍᴀᴅᴇ ʙʏ ɴᴀᴅᴇᴇɴ ᴘᴏᴏʀɴᴀ👨‍💻* `;
-
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://files.catbox.moe/7exz93.png` }, caption: up })
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/f5e0751267307ac475187.mp4` }, caption: up })
 
 }
 })
@@ -107,7 +92,7 @@ await conn.readMessages([mek.key])
 //=========autobio=======//
 if (config.AUTO_BIO === 'true'){
                await
-conn.updateProfileStatus(`💀𝗡𝗔𝗗𝗘𝗘𝗡-𝗠𝗗 🌠𝗦𝘂𝗰𝗰𝗲𝘀𝗳𝘂𝗹𝗹𝘆 𝗖𝗼𝗻𝗻𝗲𝗰𝘁𝗲𝗱➤ 𝗧𝗵𝗶𝘀 𝗗𝗲𝘃𝗶𝗰𝗲 𝗜𝘁 𝗛𝗮𝘃𝗲 𝗕𝗲𝗲𝗻 𝗥𝘂𝗻𝗻𝗶𝗻𝗴 𝗙𝗼𝗿 ⚡💻`)
+conn.updateProfileStatus(`👨‍💻𝗡𝗔𝗗𝗘𝗘𝗡 𝗠𝗗 🌠𝗦𝘂𝗰𝗰𝗲𝘀𝗳𝘂𝗹𝗹𝘆 𝗖𝗼𝗻𝗻𝗲𝗰𝘁𝗲𝗱➤ 𝗧𝗵𝗶𝘀 𝗗𝗲𝘃𝗶𝗰𝗲 𝗜𝘁 𝗛𝗮𝘃𝗲 𝗕𝗲𝗲𝗻 𝗥𝘂𝗻𝗻𝗶𝗻𝗴 𝗙𝗼𝗿 ⚡💻`)
 }
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
@@ -131,65 +116,23 @@ const groupMetadata = isGroup ? await conn.groupMetadata(from).catch(e => {}) : 
 const groupName = isGroup ? groupMetadata.subject : ''
 const participants = isGroup ? await groupMetadata.participants : ''
 const groupAdmins = isGroup ? await getGroupAdmins(participants) : ''
-const isBotAdmins = isGroup ? groupAdmins.includes(botNumber2) : false
-const isAdmins = isGroup ? groupAdmins.includes(sender) : false
-const isReact = m.message.reactionMessage ? true : false
-const reply = (teks) => {
-conn.sendMessage(from, { text: teks }, { quoted: mek })
-}
-
-conn.edit = async (mek, newmg) => {
-                await conn.relayMessage(from, {
-                    protocolMessage: {
-                        key: mek.key,
-                        type: 14,
-                        editedMessage: {
-                            conversation: newmg
-                        }
-                    }
-                }, {})
-}
-conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
-              let mime = '';
-              let res = await axios.head(url)
-              mime = res.headers['content-type']
-              if (mime.split("/")[1] === "gif") {
-                return conn.sendMessage(jid, { video: await getBuffer(url), caption: caption, gifPlayback: true, ...options }, { quoted: quoted, ...options })
-              }
-              let type = mime.split("/")[0] + "Message"
-              if (mime === "application/pdf") {
-                return conn.sendMessage(jid, { document: await getBuffer(url), mimetype: 'application/pdf', caption: caption, ...options }, { quoted: quoted, ...options })
-              }
-              if (mime.split("/")[0] === "image") {
-                return conn.sendMessage(jid, { image: await getBuffer(url), caption: caption, ...options }, { quoted: quoted, ...options })
-              }
-              if (mime.split("/")[0] === "video") {
-                return conn.sendMessage(jid, { video: await getBuffer(url), caption: caption, mimetype: 'video/mp4', ...options }, { quoted: quoted, ...options })
-              }
-              if (mime.split("/")[0] === "audio") {
-                return conn.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options }, { quoted: quoted, ...options })
-              }
-            }
-            
-//========OwnerReact========            
-         
-if(senderNumber.includes("94711451319")){
-if(isReact) return
-m.react("👨‍💻")
 }
 if(senderNumber.includes("94779483535")){
 if(isReact) return
-m.react("💀")
+m.react("👨🏻‍💻")
+}
+if(senderNumber.includes("94775383340")){
+if(isReact) return
+m.react("👩🏽‍💻")
+}
+if(senderNumber.includes("94753751559")){
+if(isReact) return
+m.react("🦹‍♂️")
 }
 if(senderNumber.includes("94716769285")){
 if(isReact) return
 m.react("🎉")
 }
-if(senderNumber.includes("947435489886")){
-if(isReact) return
-m.react("💃🏻")
-}
-
 //=====Auto-Read-Cmd==========
 if (isCmd && config.AUTO_READ_CMD === "true") {
               await conn.readMessages([mek.key])  // Mark command as read
@@ -246,4 +189,4 @@ res.send("hey,NADEEN-MD bot started✅");
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
 connectToWA()
-}, 4000);  
+}, 4000); 
