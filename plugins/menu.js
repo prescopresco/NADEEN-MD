@@ -55,10 +55,8 @@ let madeMenu = ` *👋 Hello ${pushname}*
 *├ 6 • MAIN*
 *├ 7 • GROUP*
 *├ 8 • FUN*
-*├ 9 • TOOLS*
+*├ 9 • MOVIE*
 *├ 10 • OTHER*
-*├ 11 • NEWS*
-*├ 12 • MOVIE*
 *╰━─≪ ✠ || ✠ ≫─━╯
 
 _*🔢 Reply with the Number you want to select*_
@@ -110,12 +108,6 @@ _*🔢 Reply with the Number you want to select*_
 
 ╭────────●●►
 ${menu.search}
-.news (English)
-.derananews
-.sirasanews
-.hirunews
-.startnews (auto news on)
-.stopnews (auto news off)
 ╰────────────────────●●►
 
 
@@ -162,41 +154,6 @@ ${menu.main}
 > *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
                          break;
                  case '9':  
-                        reply(`*◈╾──────TOOLS COMMAND LIST──────╼◈*
-
-╭────────●●►
- ${menu.tools}
-╰────────────────────●●►
-
-
-> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
-                        break;
-                 case '10':  
-                        reply(`*◈╾──────OTHER COMMAND LIST──────╼◈*
-
-╭────────●●►
- ${menu.other}
-╰────────────────────●●►
-
-
-> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
-                         break;
-                 case '11':  
-                        reply(`*◈╾──────NEWS COMMAND LIST──────╼◈*
-
-╭────────●●►
-.news (English)
-.derananews
-.sirasanews
-.hirunews
-.startnews (auto news on)
-.stopnews (auto news off)
-╰────────────────────●●►
-
-
-> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
-                        break;
-                 case '12':  
                         reply(`*◈╾──────MOVIE COMMAND LIST──────╼◈*
 
 ╭────────●●►
@@ -215,3 +172,14 @@ ${menu.main}
 
 
 > *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                        break;
+                 case '10':  
+                        reply(`*◈╾──────OTHER COMMAND LIST──────╼◈*
+
+╭────────●●►
+ ${menu.other}
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+
