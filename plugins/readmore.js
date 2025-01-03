@@ -15,7 +15,7 @@ cmd({
     try {
         let readmoreText = q ? q : "No text provided";
         let readmore = "\u200B".repeat(4000); 
-        let replyText = `\n\n${readmore}${readmoreText}`;
+        let replyText = `...readmore\n\n${readmore}${readmoreText}`;
         await conn.sendMessage(from, { text: replyText }, { quoted: mek });
         await conn.sendMessage(from, { react: { text: "", key: mek.key } });
 
