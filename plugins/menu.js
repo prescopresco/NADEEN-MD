@@ -8,13 +8,9 @@ cmd({
     desc: "To get the menu.",
     react: "📜",
     category: "main",
-    filename: __filename
 },
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-const voice = {
-    menu: 'media/AUD-20240901-WA0161.mp3'
-}
 
 let menu = {
 main: '',
@@ -66,7 +62,6 @@ _*🔢 Reply with the Number you want to select*_
 > *👨‍💻ռǟɖɛɛռ ʍɖ ɮʏ ռǟɖɛɛռ քօօʀռǟ👨‍💻*`;
 
         await conn.sendMessage(from, { image: { url: "https://files.catbox.moe/2nmi9q.png"}, caption: desc }, { quoted: mek });
-        await conn.sendMessage(from, { audio: { url: voice.menu }, mimetype: 'audio/mp4', ptt: true }, { quoted: mek })
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
