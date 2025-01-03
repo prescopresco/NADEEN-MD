@@ -61,8 +61,8 @@ _*🔢 Reply with the Number you want to select*_
 
 > *👨‍💻ռǟɖɛɛռ ʍɖ ɮʏ ռǟɖɛɛռ քօօʀռǟ👨‍💻*`;
 
-        const vv = await conn.sendMessage(from, { image: { url: "https://files.catbox.moe/2nmi9q.png"}, caption: desc }, { quoted: mek });
-
+        await conn.sendMessage(from, { audio: { url: voice.menu }, mimetype: 'audio/mp4', ptt: true }, { quoted: mek })
+        return await conn.sendMessage(from,{image: {url: `https://files.catbox.moe/2nmi9q.png`},caption:madeMenu},{quoted: mek})
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
