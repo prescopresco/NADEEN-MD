@@ -10,9 +10,8 @@ cmd({
     category: "main",
     filename: __filename
 },
-async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-    
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
 const voice = {
     menu: 'media/AUD-20240901-WA0161.mp3'
 }
@@ -47,89 +46,172 @@ let madeMenu = ` *👋 Hello ${pushname}*
 │◈ ᴘʟᴀᴛꜰᴏʀᴍ : ${os.hostname()}
 │◈ ᴠᴇʀꜱɪᴏɴ : 2.0.0
 ╰──────────●●►
-╭──────────●●►
- 📥 *𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐌𝐞𝐧𝐮*
-  ───────
- ${menu.download}
-╰───────────●●►
-╭──────────●●►
- 👾 *𝐀𝐢 𝐌𝐞𝐧𝐮*
-  ───────
+*╭━─≪ ✠ || ✠ ≫─━╮
+*├ 1 • OWNER*
+*├ 2 • CONVERT*
+*├ 3 • AI*
+*├ 4 • SEARCH*
+*├ 5 • DOWNLOAD*
+*├ 6 • MAIN*
+*├ 7 • GROUP*
+*├ 8 • FUN*
+*├ 9 • TOOLS*
+*├ 10 • OTHER*
+*├ 11 • NEWS*
+*├ 12 • MOVIE*
+*╰━─≪ ✠ || ✠ ≫─━╯
+
+_*🔢 Reply with the Number you want to select*_
+
+> *👨‍💻ռǟɖɛɛռ ʍɖ ɮʏ ռǟɖɛɛռ քօօʀռǟ👨‍💻*`;
+
+        const vv = await conn.sendMessage(from, { image: { url: "https://files.catbox.moe/2nmi9q.png"}, caption: desc }, { quoted: mek });
+
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
+
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
+                switch (selectedOption) {
+                    case '1':
+                        reply(`*◈╾──────OWNER COMMAND LIST──────╼◈*
+
+╭────────●●►
+ ${menu.owner} 
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                        break;
+                    case '2':               
+                        reply(`*◈╾──────CONVERT COMMAND LIST──────╼◈*
+
+╭────────●●►
+ ${menu.convert 
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                        break;
+                    case '3':               
+                        reply(`*◈╾──────AI COMMAND LIST──────╼◈*
+
+╭────────●●►
  ${menu.ai}
-╰───────────●●►
-╭──────────●●►
- 🔧 *𝐌𝐚𝐢𝐧 𝐌𝐞𝐧𝐮*
-  ───────
- ${menu.main}
-╰───────────●●►
-╭──────────●●►
- 🎬 *𝐌𝐎𝐕𝐈𝐄 𝐌𝐞𝐧𝐮*
-  ───────
- .movie
- .cinerulk
- .cinesubz
- .ytsmx
- .ginisisila
- .sinhalasub
- .upmv
- .mkv
- .upzip
- .upme
- .uptv
-╰───────────●●►
-╭──────────●●►
- 🎉 *𝐅𝐮𝐧 𝐌𝐞𝐧𝐮*
-  ───────
- ${menu.fun}
-╰───────────●●►
-╭──────────●●►
- 🔄 *𝐂𝐨𝐧𝐯𝐞𝐫𝐭 𝐌𝐞𝐧𝐮*
-  ───────
- ${menu.convert}
-╰───────────●●►
-╭──────────●●►
- 🔍 *𝐒𝐞𝐚𝐫𝐜𝐡 𝐌𝐞𝐧𝐮*
-  ───────
- ${menu.search}
-╰───────────●●►
-╭──────────●●►
- 👥 *𝐆𝐫𝐨𝐮𝐩 𝐌𝐞𝐧𝐮*
-  ───────
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                        break;
+                    case '4':               
+                        reply(`*◈╾──────SEARCH COMMAND LIST──────╼◈*
+
+╭────────●●►
+${menu.search}
+.news (English)
+.derananews
+.sirasanews
+.hirunews
+.startnews (auto news on)
+.stopnews (auto news off)
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                        break;
+                    case '5':               
+                        reply(`*◈╾──────DOWNLOAD COMMAND LIST──────╼◈*
+
+╭────────●●►
+ ${menu.download}
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                     break;
+                 case '6':               
+                        reply(`*◈╾──────MAIN COMMAND LIST──────╼◈*
+                        
+╭────────●●►
+${menu.main}
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                     break;
+                 case '7':   
+                        reply(`*◈╾──────GROUP COMMAND LIST──────╼◈*
+                        
+╭────────●●►
  ${menu.group}
-╰───────────●●►
-╭──────────●●►
- 🔒 *𝐎𝐰𝐧𝐞𝐫 𝐌𝐞𝐧𝐮*
-  ───────
- ${menu.owner}
-╰───────────●●►
-╭──────────●●►
- ⚙️ *𝐎𝐭𝐡𝐞𝐫 𝐌𝐞𝐧𝐮*
-  ───────
- ${menu.other}
-╰───────────●●►
-╭──────────●●►
- 📰 *𝐍𝐄𝐖𝐒 𝐌𝐞𝐧𝐮*
-  ───────
- .news (English)
- .derananews
- .sirasanews
- .hirunews
- .startnews (auto news on)
- .stopnews (auto news off)
-╰───────────●●►
-╭──────────●●►
- 🛠️ *𝐓𝐨𝐨𝐥𝐬 𝐌𝐞𝐧𝐮*
-  ───────
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                     break;
+                 case '8':  
+                        reply(`*◈╾──────FUN COMMAND LIST──────╼◈*
+
+╭────────●●►
+ ${menu.fun}
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                         break;
+                 case '9':  
+                        reply(`*◈╾──────TOOLS COMMAND LIST──────╼◈*
+
+╭────────●●►
  ${menu.tools}
-╰───────────●●►
-*👨‍💻ɴᴀᴅᴇᴇɴ-ᴍᴅ ᴍᴀᴅᴇ ʙʏ ɴᴀᴅᴇᴇɴ ᴘᴏᴏʀɴᴀ👨‍💻*
-`
+╰────────────────────●●►
 
-await conn.sendMessage(from, { audio: { url: voice.menu }, mimetype: 'audio/mp4', ptt: true }, { quoted: mek })
 
-return await conn.sendMessage(from,{image: {url: `https://files.catbox.moe/2nmi9q.png`},caption:madeMenu},{quoted: mek})
-}catch(e){
-console.log(e)
-reply(`Error`)
-}
-})
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                        break;
+                 case '10':  
+                        reply(`*◈╾──────OTHER COMMAND LIST──────╼◈*
+
+╭────────●●►
+ ${menu.other}
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                         break;
+                 case '11':  
+                        reply(`*◈╾──────NEWS COMMAND LIST──────╼◈*
+
+╭────────●●►
+.news (English)
+.derananews
+.sirasanews
+.hirunews
+.startnews (auto news on)
+.stopnews (auto news off)
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                        break;
+                 case '12':  
+                        reply(`*◈╾──────MOVIE COMMAND LIST──────╼◈*
+
+╭────────●●►
+.movie
+.cinerulk
+.cinesubz
+.ytsmx
+.ginisisila
+.sinhalasub
+.upmv
+.mkv
+.upzip
+.upme
+.uptv
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
