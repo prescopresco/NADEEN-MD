@@ -1,3 +1,5 @@
+const config = require('../config')
+const {cmd , commands} = require('../command')
 const os = require("os")
 const {runtime} = require('../lib/functions')
 
@@ -53,16 +55,18 @@ let madeMenu = ` *👋 Hello ${pushname}*
 *├ 6 • MAIN*
 *├ 7 • GROUP*
 *├ 8 • FUN*
-*├ 9 • MOVIE*
+*├ 9 • TOOLS*
 *├ 10 • OTHER*
+*├ 11 • NEWS*
+*├ 12 • MOVIE*
 *╰━─≪ ✠ || ✠ ≫─━╯
 
 _*🔢 Reply with the Number you want to select*_
 
 > *👨‍💻ռǟɖɛɛռ ʍɖ ɮʏ ռǟɖɛɛռ քօօʀռǟ👨‍💻*`;
 
+        await conn.sendMessage(from, { image: { url: "https://files.catbox.moe/2nmi9q.png"}, caption: desc }, { quoted: mek });
         await conn.sendMessage(from, { audio: { url: voice.menu }, mimetype: 'audio/mp4', ptt: true }, { quoted: mek })
-        return await conn.sendMessage(from,{image: {url: `https://files.catbox.moe/2nmi9q.png`},caption:madeMenu},{quoted: mek})
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
@@ -106,6 +110,12 @@ _*🔢 Reply with the Number you want to select*_
 
 ╭────────●●►
 ${menu.search}
+.news (English)
+.derananews
+.sirasanews
+.hirunews
+.startnews (auto news on)
+.stopnews (auto news off)
 ╰────────────────────●●►
 
 
@@ -152,6 +162,41 @@ ${menu.main}
 > *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
                          break;
                  case '9':  
+                        reply(`*◈╾──────TOOLS COMMAND LIST──────╼◈*
+
+╭────────●●►
+ ${menu.tools}
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                        break;
+                 case '10':  
+                        reply(`*◈╾──────OTHER COMMAND LIST──────╼◈*
+
+╭────────●●►
+ ${menu.other}
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                         break;
+                 case '11':  
+                        reply(`*◈╾──────NEWS COMMAND LIST──────╼◈*
+
+╭────────●●►
+.news (English)
+.derananews
+.sirasanews
+.hirunews
+.startnews (auto news on)
+.stopnews (auto news off)
+╰────────────────────●●►
+
+
+> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+                        break;
+                 case '12':  
                         reply(`*◈╾──────MOVIE COMMAND LIST──────╼◈*
 
 ╭────────●●►
@@ -171,13 +216,17 @@ ${menu.main}
 
 > *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
                         break;
-                 case '10':  
-                        reply(`*◈╾──────OTHER COMMAND LIST──────╼◈*
+                         default:
+                        reply("Invalid option. Please select a valid option🔴");
+                }
 
-╭────────●●►
- ${menu.other}
-╰────────────────────●●►
+            }
+        });
 
-
-> *©𝙽𝙰𝙳𝙴𝙴𝙽 𝙼𝙳 𝙱𝚈 𝙽𝙰𝙳𝙴𝙴𝙽 𝙿𝙾𝙾𝚁𝙽𝙰*`);
+    } catch (e) {
+        console.error(e);
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
+        reply('An error occurred while processing your request.');
+    }
+});
 
