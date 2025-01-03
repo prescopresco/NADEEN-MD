@@ -46,7 +46,6 @@ let madeMenu = ` *👋 Hello ${pushname}*
 │◈ ᴏᴡɴᴇʀ ɴᴜᴍʙᴇʀ : 94711451319
 │◈ ᴘʟᴀᴛꜰᴏʀᴍ : ${os.hostname()}
 │◈ ᴠᴇʀꜱɪᴏɴ : 2.0.0
-│◈ ᴡᴏʀᴋ : ${work}
 ╰──────────●●►
 ╭──────────●●►
  📥 *𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐌𝐞𝐧𝐮*
@@ -131,6 +130,6 @@ await conn.sendMessage(from, { audio: { url: voice.menu }, mimetype: 'audio/mp4'
 return await conn.sendMessage(from,{image: {url: `https://files.catbox.moe/2nmi9q.png`},caption:madeMenu},{quoted: mek})
 }catch(e){
 console.log(e)
-reply(`Error`)
+reply(`❓Error.Will Be fix this.....`)
 }
 })
